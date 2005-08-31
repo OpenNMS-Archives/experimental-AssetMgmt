@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="web/WEB-INF/src"/>
+	<classpathentry kind="src" path="work"/>
+	<classpathentry sourcepath="/Users/brozow/archives/jsf-1_1-src.zip" kind="lib" path="web/WEB-INF/lib/jsf-impl.jar"/>
+	<classpathentry sourcepath="/Users/brozow/archives/jsf-1_1-src.zip" kind="lib" path="web/WEB-INF/lib/jsf-api.jar"/>
+	<classpathentry kind="var" path="TOMCAT_HOME/common/lib/servlet.jar"/>
+	<classpathentry kind="var" path="TOMCAT_HOME/common/lib/jasper-runtime.jar"/>
+	<classpathentry sourcepath="/Users/brozow/src/src4eclipse/myfaces-1.0.6" kind="lib" path="web/WEB-INF/lib/myfaces-components.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/hibernate2.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/commons-lang-1.0.1.jar"/>
+	<classpathentry kind="output" path="web/WEB-INF/classes"/>
+</classpath>

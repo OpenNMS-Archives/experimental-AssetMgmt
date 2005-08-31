@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin
+
+    http://boss.bekk.no/boss/middlegen/
+    http://hibernate.sourceforge.net/
+-->
+
+<class 
+    name="org.opennms.web.assets.Distpoller" 
+    table="distpoller"
+>
+
+    <id
+        name="dpname"
+        type="java.lang.String"
+        column="dpname"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dpip"
+        type="java.lang.String"
+        column="dpip"
+        not-null="true"
+        length="16"
+    />
+    <property
+        name="dpcomment"
+        type="java.lang.String"
+        column="dpcomment"
+        length="256"
+    />
+    <property
+        name="dpdisclimit"
+        type="java.math.BigDecimal"
+        column="dpdisclimit"
+        length="5"
+    />
+    <property
+        name="dplastnodepull"
+        type="java.sql.Timestamp"
+        column="dplastnodepull"
+        length="8"
+    />
+    <property
+        name="dplasteventpull"
+        type="java.sql.Timestamp"
+        column="dplasteventpull"
+        length="8"
+    />
+    <property
+        name="dplastpackagepush"
+        type="java.sql.Timestamp"
+        column="dplastpackagepush"
+        length="8"
+    />
+    <property
+        name="dpadminstate"
+        type="int"
+        column="dpadminstate"
+        length="4"
+    />
+    <property
+        name="dprunstate"
+        type="int"
+        column="dprunstate"
+        length="4"
+    />
+
+    <!-- associations -->
+    <!-- bi-directional one-to-many association to Node -->
+    <set
+        name="nodes"
+        lazy="true"
+        inverse="true"
+    >
+        <key>
+            <column name="dpname" />
+        </key>
+        <one-to-many 
+            class="org.opennms.web.assets.Node"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

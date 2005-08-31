@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin
+
+    http://boss.bekk.no/boss/middlegen/
+    http://hibernate.sourceforge.net/
+-->
+
+<class 
+    name="org.opennms.web.assets.Vulnplugin" 
+    table="vulnplugins"
+>
+
+    <composite-id name="comp_id" class="org.opennms.web.assets.VulnpluginPK">
+        <key-property 
+            name="pluginid" 
+            column="pluginid" 
+            type="int"
+            length="4"
+        />
+        <key-property 
+            name="pluginsubid" 
+            column="pluginsubid" 
+            type="int"
+            length="4"
+        />
+    </composite-id>    
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="name"
+        length="128"
+    />
+    <property
+        name="category"
+        type="java.lang.String"
+        column="category"
+        length="32"
+    />
+    <property
+        name="copyright"
+        type="java.lang.String"
+        column="copyright"
+        length="128"
+    />
+    <property
+        name="descr"
+        type="java.lang.String"
+        column="descr"
+        length="-1"
+    />
+    <property
+        name="summary"
+        type="java.lang.String"
+        column="summary"
+        length="256"
+    />
+    <property
+        name="family"
+        type="java.lang.String"
+        column="family"
+        length="32"
+    />
+    <property
+        name="version"
+        type="java.lang.String"
+        column="version"
+        length="32"
+    />
+    <property
+        name="cveentry"
+        type="java.lang.String"
+        column="cveentry"
+        length="14"
+    />
+    <property
+        name="md5"
+        type="java.lang.String"
+        column="md5"
+        length="32"
+    />
+
+    <!-- associations -->
+
+</class>
+</hibernate-mapping>

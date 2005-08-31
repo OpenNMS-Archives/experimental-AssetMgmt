@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin
+
+    http://boss.bekk.no/boss/middlegen/
+    http://hibernate.sourceforge.net/
+-->
+
+<class 
+    name="org.opennms.web.assets.Notification" 
+    table="notifications"
+>
+
+    <id
+        name="notifyid"
+        type="int"
+        column="notifyid"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="textmsg"
+        type="java.lang.String"
+        column="textmsg"
+        length="4000"
+    />
+    <property
+        name="numericmsg"
+        type="java.lang.String"
+        column="numericmsg"
+        length="256"
+    />
+    <property
+        name="pagetime"
+        type="java.sql.Timestamp"
+        column="pagetime"
+        length="8"
+    />
+    <property
+        name="respondtime"
+        type="java.sql.Timestamp"
+        column="respondtime"
+        length="8"
+    />
+    <property
+        name="answeredby"
+        type="java.lang.String"
+        column="answeredby"
+        length="256"
+    />
+    <property
+        name="nodeid"
+        type="int"
+        column="nodeid"
+        length="4"
+    />
+    <property
+        name="interfaceid"
+        type="java.lang.String"
+        column="interfaceid"
+        length="16"
+    />
+    <property
+        name="serviceid"
+        type="int"
+        column="serviceid"
+        length="4"
+    />
+    <property
+        name="eventuei"
+        type="java.lang.String"
+        column="eventuei"
+        not-null="true"
+        length="256"
+    />
+
+    <!-- associations -->
+    <!-- bi-directional many-to-one association to Event -->
+    <many-to-one
+        name="event"
+        class="org.opennms.web.assets.Event"
+        not-null="true"
+    >
+        <column name="eventid" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to Usersnotified -->
+    <set
+        name="usersnotifieds"
+        lazy="true"
+        inverse="true"
+    >
+        <key>
+            <column name="notifyid" />
+        </key>
+        <one-to-many 
+            class="org.opennms.web.assets.Usersnotified"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

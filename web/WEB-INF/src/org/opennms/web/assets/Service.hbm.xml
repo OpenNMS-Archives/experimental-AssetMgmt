@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin
+
+    http://boss.bekk.no/boss/middlegen/
+    http://hibernate.sourceforge.net/
+-->
+
+<class 
+    name="org.opennms.web.assets.Service" 
+    table="service"
+>
+
+    <id
+        name="serviceid"
+        type="int"
+        column="serviceid"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="servicename"
+        type="java.lang.String"
+        column="servicename"
+        not-null="true"
+        length="32"
+    />
+
+    <!-- associations -->
+    <!-- bi-directional one-to-many association to Outag -->
+    <set
+        name="outags"
+        lazy="true"
+        inverse="true"
+    >
+        <key>
+            <column name="serviceid" />
+        </key>
+        <one-to-many 
+            class="org.opennms.web.assets.Outag"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to Ifservic -->
+    <set
+        name="ifservics"
+        lazy="true"
+        inverse="true"
+    >
+        <key>
+            <column name="serviceid" />
+        </key>
+        <one-to-many 
+            class="org.opennms.web.assets.Ifservic"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>
